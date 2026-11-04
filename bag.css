@@ -1,0 +1,32 @@
+/* LUMIÈRE — demo shopping bag, isolated styles */
+.bag-overlay[hidden],.bag-drawer[hidden]{display:none!important}
+.bag-overlay{position:fixed;inset:0;background:rgba(35,22,42,.48);z-index:1000;opacity:0;transition:opacity .25s}
+.bag-overlay.is-open{opacity:1}
+.bag-drawer{position:fixed;inset:0 0 0 auto;width:min(460px,100%);background:#fffaf7;color:#38263f;z-index:1001;display:flex;flex-direction:column;box-shadow:-12px 0 55px #30203633;transform:translateX(100%);transition:transform .3s ease}
+.bag-drawer.is-open{transform:translateX(0)}
+.bag-drawer *{box-sizing:border-box}
+.bag-drawer__header{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;padding:30px 30px 22px;border-bottom:1px solid #e8dce7}
+.bag-drawer__eyebrow{font:700 10px 'DM Sans',sans-serif;letter-spacing:.2em;color:#a174a5;margin:0 0 7px}
+.bag-drawer__title{font:500 34px 'Playfair Display',Georgia,serif;margin:0}
+.bag-drawer__close{border:1px solid #d8c6d9;border-radius:50%;background:transparent;color:#38263f;width:40px;height:40px;font-size:23px;cursor:pointer}
+.bag-drawer__body{padding:22px 30px;overflow-y:auto;flex:1}
+.bag-empty{text-align:center;padding:65px 15px;color:#6b5a6b}
+.bag-empty__icon{font-size:42px;color:#b98abc;margin-bottom:18px}
+.bag-empty h3{font:500 27px 'Playfair Display',Georgia,serif;color:#38263f;margin:0 0 10px}
+.bag-empty p{line-height:1.7}
+.bag-item{display:grid;grid-template-columns:74px 1fr;gap:17px;padding:20px 0;border-bottom:1px solid #e9dfe8}
+.bag-item__art{height:86px;border-radius:13px;background:#eadbea;display:grid;place-items:center;font:italic 27px 'Playfair Display',Georgia,serif;color:#5d3c62}
+.bag-item__art[data-tone='peach']{background:#f3e0da}.bag-item__art[data-tone='sage']{background:#e1e8df}
+.bag-item__name{font:500 20px 'Playfair Display',Georgia,serif;margin:0 0 6px}.bag-item__price{font-size:13px;color:#6f5c70;margin:0 0 12px}
+.bag-item__controls{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.bag-qty{display:flex;align-items:center;border:1px solid #d9c8da;border-radius:30px;overflow:hidden}
+.bag-qty button{background:none;border:0;width:31px;height:32px;cursor:pointer;color:#38263f;font-size:19px}.bag-qty span{font-size:13px;min-width:20px;text-align:center}
+.bag-remove{background:none;border:0;text-decoration:underline;color:#866d86;font:500 12px 'DM Sans',sans-serif;cursor:pointer}
+.bag-drawer__footer{border-top:1px solid #e8dce7;padding:22px 30px 30px;background:#fffaf7}
+.bag-subtotal{display:flex;justify-content:space-between;font:600 17px 'DM Sans',sans-serif;margin-bottom:12px}
+.bag-disclaimer{font:400 12px/1.6 'DM Sans',sans-serif;color:#796b78;margin:0 0 18px}
+.bag-continue{display:block;width:100%;border:0;border-radius:50px;background:#38263f;color:white;text-align:center;text-decoration:none;padding:15px 20px;font:700 13px 'DM Sans',sans-serif;cursor:pointer}
+.bag-continue:hover{background:#62456a}
+body.bag-is-open{overflow:hidden}
+@media(max-width:520px){.bag-drawer__header,.bag-drawer__body,.bag-drawer__footer{padding-left:20px;padding-right:20px}}
+@media(prefers-reduced-motion:reduce){.bag-overlay,.bag-drawer{transition:none}}
