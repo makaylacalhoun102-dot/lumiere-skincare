@@ -10,8 +10,10 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css?v=3">
   <link rel="stylesheet" href="quiz.css?v=1">
+  <link rel="stylesheet" href="bag.css?v=1">
   <script src="script.js?v=3" defer></script>
   <script src="quiz.js?v=1" defer></script>
+  <script src="bag.js?v=1" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -20,7 +22,7 @@
     <nav class="nav container" aria-label="Main navigation">
       <a class="wordmark" href="#home" aria-label="LUMIÈRE home">LUMIÈRE<span aria-hidden="true">✳</span></a>
       <div class="nav-links"><a href="#collection">The collection</a><a href="#philosophy">Our philosophy</a><a href="#ritual">The ritual</a><a href="#lumiere-quiz">The quiz</a></div>
-      <button class="bag-button" id="bag-button" type="button">Bag <span id="bag-count">(0)</span></button>
+      <button class="bag-button" id="bag-button" type="button" aria-haspopup="dialog" aria-controls="lumiere-bag" aria-expanded="false">Bag <span id="bag-count">(0)</span></button>
     </nav>
   </header>
   <main id="main">
@@ -53,8 +55,7 @@
     </section>
     <section class="philosophy section" id="philosophy" aria-labelledby="philosophy-title"><div class="container philosophy-grid"><div class="philosophy-art" aria-hidden="true"><div class="philosophy-circle"></div><span>BEAUTY<br>IN THE<br>PAUSE.</span><span class="philosophy-star">✳</span></div><div class="philosophy-copy"><p class="eyebrow">02 / OUR PHILOSOPHY</p><h2 id="philosophy-title">A little more <em>you.</em><br>A little less rush.</h2><p>We believe a skincare ritual can be a moment to slow down. LUMIÈRE is a fictional brand concept inspired by softness, confidence, and everyday beauty.</p><a class="text-link" href="#ritual">Make room for your ritual →</a></div></div></section>
     <section class="ritual section container" id="ritual" aria-labelledby="ritual-title"><div class="section-heading centered"><p class="eyebrow">03 / THE RITUAL</p><h2 id="ritual-title">Three steps to <em>your moment.</em></h2><p>Keep it simple. Make it yours.</p></div><div class="ritual-grid"><div class="ritual-step"><span>01</span><h3>Cleanse</h3><p>Start fresh with a gentle reset.</p></div><div class="ritual-step"><span>02</span><h3>Illuminate</h3><p>Add a touch of everyday radiance.</p></div><div class="ritual-step"><span>03</span><h3>Comfort</h3><p>Finish with a moment of softness.</p></div></div></section>
-    <section class="closing"><div class="container"><p class="eyebrow">A NOTE FROM LUMIÈRE</p><h2>Glow at your <em>own pace.</em></h2><p>Beautifully imagined. Thoughtfully designed.</p><a class="button button-light" href="#home">Back to the beginning ↑</a></div></section>
-<!-- LUMIÈRE — Discover Your Ritual -->
+    <!-- LUMIÈRE — Discover Your Ritual -->
 <section class="ritual-quiz" id="lumiere-quiz" aria-labelledby="quiz-heading">
   <div class="ritual-quiz__wrap">
     <p class="ritual-quiz__eyebrow">04 / A MOMENT JUST FOR YOU</p>
@@ -76,9 +77,25 @@
     </div>
   </div>
 </section>
+    <section class="closing"><div class="container"><p class="eyebrow">A NOTE FROM LUMIÈRE</p><h2>Glow at your <em>own pace.</em></h2><p>Beautifully imagined. Thoughtfully designed.</p><a class="button button-light" href="#home">Back to the beginning ↑</a></div></section>
+
 
   </main>
   <footer class="footer"><div class="container footer-grid"><div><a class="wordmark footer-wordmark" href="#home">LUMIÈRE✳</a><p>An original fictional skincare website concept.</p></div><div><p>Designed &amp; developed as a portfolio project.</p><p>© <span id="year">2026</span> LUMIÈRE. Demo only — no purchases.</p></div></div></footer>
+  <!-- LUMIÈRE demo shopping bag -->
+  <div class="bag-overlay" id="bag-overlay" hidden></div>
+  <aside class="bag-drawer" id="lumiere-bag" role="dialog" aria-modal="true" aria-labelledby="bag-title" hidden>
+    <div class="bag-drawer__header">
+      <div><p class="bag-drawer__eyebrow">A LITTLE SOMETHING FOR YOU</p><h2 class="bag-drawer__title" id="bag-title">Your bag.</h2></div>
+      <button class="bag-drawer__close" id="bag-close" type="button" aria-label="Close shopping bag">×</button>
+    </div>
+    <div class="bag-drawer__body" id="bag-items" aria-live="polite"></div>
+    <div class="bag-drawer__footer">
+      <div class="bag-subtotal"><span>Subtotal</span><span id="bag-subtotal">$0.00</span></div>
+      <p class="bag-disclaimer">An interactive portfolio demonstration. No real orders, payments, or purchases.</p>
+      <button class="bag-continue" type="button" data-bag-continue>Continue exploring →</button>
+    </div>
+  </aside>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 </body>
 </html>
