@@ -1,45 +1,59 @@
-<!doctype html>
-<html lang="en"> 
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <script src="phase1.js" defer></script>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="LUMIÈRE — a fictional luxury skincare brand and original web design concept by Makayla Calhoun.">
-  <title>LUMIÈRE | The Art of Everyday Radiance</title>
+  <meta name="description" content="LUMIÈRE is a fictional luxury skincare concept created as a web design portfolio project.">
+  <title>LUMIÈRE — Your Glow, Your Ritual</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="phase1.css">
-  <script src="script.js" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=3">
+  <script src="script.js?v=3" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-  <div class="announcement">A LITTLE RITUAL. A LOT OF RADIANCE. <span aria-hidden="true">✦</span> CONCEPT BRAND</div>
+  <div class="announcement">A LITTLE RITUAL. A LOT OF RADIANCE. <span aria-hidden="true">✦</span> ORIGINAL DESIGN CONCEPT</div>
   <header class="site-header">
     <nav class="nav container" aria-label="Main navigation">
-      <a class="wordmark" href="#home" aria-label="Lumière home">LUMIÈRE<span>✳</span></a>
+      <a class="wordmark" href="#home" aria-label="LUMIÈRE home">LUMIÈRE<span aria-hidden="true">✳</span></a>
       <div class="nav-links"><a href="#collection">The collection</a><a href="#philosophy">Our philosophy</a><a href="#ritual">The ritual</a></div>
-      <button class="bag-button" type="button" id="bag-button" aria-label="View shopping bag">Bag <span id="bag-count">(0)</span></button>
+      <button class="bag-button" id="bag-button" type="button">Bag <span id="bag-count">(0)</span></button>
     </nav>
   </header>
   <main id="main">
     <section class="hero" id="home" aria-labelledby="hero-title">
-      <div class="hero-content container">
-        <div class="hero-copy"><p class="eyebrow">SKINCARE, SLOWLY & BEAUTIFULLY</p><h1 id="hero-title">Your glow.<br><em>Your ritual.</em></h1><p>Meet the softer side of self-care. Thoughtfully imagined essentials for the moments you make your own.</p><a class="button button-dark" href="#collection">Explore the collection <span aria-hidden="true">↗</span></a><p class="hero-footnote">LUMIÈRE / AN ORIGINAL DESIGN CONCEPT</p></div>
-        <div class="hero-visual" aria-label="Decorative abstract skincare packaging illustration" role="img"><div class="halo"></div><div class="bottle bottle-back"><span>LUMIÈRE</span><small>THE DAILY VEIL</small></div><div class="bottle bottle-front"><span>LUMIÈRE</span><strong>éclat</strong><small>RADIANCE SERUM<br>30 ML</small></div><div class="visual-seal">THE ART OF<br>EVERYDAY<br>RADIANCE ✳</div></div>
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">SKINCARE, SLOWLY &amp; BEAUTIFULLY</p>
+          <h1 id="hero-title">Your glow.<br><em>Your ritual.</em></h1>
+          <p class="hero-description">Meet the softer side of self-care. Thoughtfully imagined essentials for the moments you make your own.</p>
+          <div class="hero-actions"><a class="button button-dark" href="#collection">Explore the collection <span aria-hidden="true">↗</span></a><a class="text-link" href="#ritual">Discover the ritual <span aria-hidden="true">→</span></a></div>
+          <p class="concept-note">LUMIÈRE / AN ORIGINAL DESIGN CONCEPT</p>
+        </div>
+        <div class="hero-stage" role="img" aria-label="Illustrated lavender LUMIÈRE skincare serum bottle floating in a soft glowing circle">
+          <div class="stage-orbit orbit-a"></div><div class="stage-orbit orbit-b"></div>
+          <div class="stage-glow"></div>
+          <div class="serum-wrap"><div class="serum-cap"></div><div class="serum-neck"></div><div class="serum-bottle"><div class="bottle-shine"></div><div class="serum-label"><span class="serum-brand">LUMIÈRE</span><span class="serum-rule"></span><span class="serum-name">éclat</span><span class="serum-type">RADIANCE SERUM</span><span class="serum-volume">30 ML / 1.0 FL OZ</span></div></div></div>
+          <span class="stage-sparkle sparkle-one" aria-hidden="true">✳</span><span class="stage-sparkle sparkle-two" aria-hidden="true">✦</span>
+          <span class="stage-caption">THE ART OF<br>EVERYDAY RADIANCE</span>
+        </div>
       </div>
     </section>
-    <div class="ticker" aria-label="Brand values"><div class="container">GLOW WITH INTENTION <span>✳</span> BEAUTY IN THE EVERYDAY <span>✳</span> YOUR MOMENT, YOUR WAY</div></div>
-    <section class="section container" id="collection" aria-labelledby="collection-title"><div class="section-top"><div><p class="eyebrow">01 / THE COLLECTION</p><h2 id="collection-title">The everyday <em>essentials.</em></h2></div><p>Three little luxuries, one beautiful routine. Explore this fictional collection designed for a portfolio demonstration.</p></div><div class="products">
-      <article class="product"><div class="product-art product-one"><div class="product-bottle tall"><span>LUMIÈRE</span><strong>éclat</strong><small>RADIANCE SERUM</small></div><span class="product-number">01</span></div><div class="product-details"><div><h3>Éclat Radiance Serum</h3><p>A luminous start to your day</p></div><span>$42</span></div><button class="add-button" type="button" data-product="Éclat Radiance Serum">Add to bag <span aria-hidden="true">+</span></button></article>
-      <article class="product"><div class="product-art product-two"><div class="product-jar"><span>LUMIÈRE</span><strong>nuage</strong><small>CLOUD CREAM</small></div><span class="product-number">02</span></div><div class="product-details"><div><h3>Nuage Cloud Cream</h3><p>A comforting daily ritual</p></div><span>$38</span></div><button class="add-button" type="button" data-product="Nuage Cloud Cream">Add to bag <span aria-hidden="true">+</span></button></article>
-      <article class="product"><div class="product-art product-three"><div class="product-bottle short"><span>LUMIÈRE</span><strong>calme</strong><small>GENTLE CLEANSER</small></div><span class="product-number">03</span></div><div class="product-details"><div><h3>Calme Gentle Cleanser</h3><p>A fresh beginning, every time</p></div><span>$29</span></div><button class="add-button" type="button" data-product="Calme Gentle Cleanser">Add to bag <span aria-hidden="true">+</span></button></article>
-    </div></section>
-    <section class="philosophy" id="philosophy"><div class="container philosophy-grid"><div class="philosophy-art"><span class="orbit-text">✳</span><p>MAKE ROOM<br>FOR <em>YOU.</em></p></div><div class="philosophy-copy"><p class="eyebrow">02 / OUR PHILOSOPHY</p><h2>More than skincare.<br><em>A moment to pause.</em></h2><p>LUMIÈRE is a fictional brand built around one simple idea: your daily routine can feel like something special. Soft forms, considered typography, and a little playfulness shape every part of this experience.</p><a class="underlined-link" href="#ritual">Discover the ritual ↗</a></div></div></section>
-    <section class="section ritual container" id="ritual"><p class="eyebrow">03 / THE RITUAL</p><h2>Three steps to <em>your moment.</em></h2><div class="ritual-grid"><div><span>01</span><h3>Refresh</h3><p>Begin with a clean canvas.</p></div><div><span>02</span><h3>Restore</h3><p>Make space for a little glow.</p></div><div><span>03</span><h3>Unwind</h3><p>Finish with softness and care.</p></div></div></section>
+    <div class="ticker" aria-hidden="true">GLOW WITH INTENTION <span>✳</span> BEAUTY IN THE EVERYDAY <span>✳</span> YOUR MOMENT, YOUR WAY</div>
+    <section class="collection section container" id="collection" aria-labelledby="collection-title">
+      <div class="section-heading"><p class="eyebrow">01 / THE COLLECTION</p><h2 id="collection-title">The everyday <em>essentials.</em></h2><p>Three little luxuries, one beautiful routine. Explore this fictional collection designed for a portfolio demonstration.</p></div>
+      <div class="product-grid">
+        <article class="product-card"><div class="product-art art-lilac"><span class="product-index">01 / THE GLOW</span><div class="mini-bottle mini-serum"><span>LUMIÈRE</span><strong>éclat</strong><small>RADIANCE SERUM</small></div></div><div class="product-info"><div class="product-heading"><h3>Éclat Radiance Serum</h3><span>$42</span></div><p>A luminous start to your day.</p><button class="add-button" data-product="Éclat Radiance Serum" type="button">Add to bag <span aria-hidden="true">+</span></button></div></article>
+        <article class="product-card"><div class="product-art art-peach"><span class="product-index">02 / THE COMFORT</span><div class="mini-jar"><div class="jar-lid"></div><div class="jar-body"><span>LUMIÈRE</span><strong>nuage</strong><small>CLOUD CREAM</small></div></div></div><div class="product-info"><div class="product-heading"><h3>Nuage Cloud Cream</h3><span>$38</span></div><p>A comforting daily ritual.</p><button class="add-button" data-product="Nuage Cloud Cream" type="button">Add to bag <span aria-hidden="true">+</span></button></div></article>
+        <article class="product-card"><div class="product-art art-sage"><span class="product-index">03 / THE RESET</span><div class="mini-bottle mini-cleanser"><span>LUMIÈRE</span><strong>calme</strong><small>GENTLE CLEANSER</small></div></div><div class="product-info"><div class="product-heading"><h3>Calme Gentle Cleanser</h3><span>$28</span></div><p>A softer way to begin again.</p><button class="add-button" data-product="Calme Gentle Cleanser" type="button">Add to bag <span aria-hidden="true">+</span></button></div></article>
+      </div>
+    </section>
+    <section class="philosophy section" id="philosophy" aria-labelledby="philosophy-title"><div class="container philosophy-grid"><div class="philosophy-art" aria-hidden="true"><div class="philosophy-circle"></div><span>BEAUTY<br>IN THE<br>PAUSE.</span><span class="philosophy-star">✳</span></div><div class="philosophy-copy"><p class="eyebrow">02 / OUR PHILOSOPHY</p><h2 id="philosophy-title">A little more <em>you.</em><br>A little less rush.</h2><p>We believe a skincare ritual can be a moment to slow down. LUMIÈRE is a fictional brand concept inspired by softness, confidence, and everyday beauty.</p><a class="text-link" href="#ritual">Make room for your ritual →</a></div></div></section>
+    <section class="ritual section container" id="ritual" aria-labelledby="ritual-title"><div class="section-heading centered"><p class="eyebrow">03 / THE RITUAL</p><h2 id="ritual-title">Three steps to <em>your moment.</em></h2><p>Keep it simple. Make it yours.</p></div><div class="ritual-grid"><div class="ritual-step"><span>01</span><h3>Cleanse</h3><p>Start fresh with a gentle reset.</p></div><div class="ritual-step"><span>02</span><h3>Illuminate</h3><p>Add a touch of everyday radiance.</p></div><div class="ritual-step"><span>03</span><h3>Comfort</h3><p>Finish with a moment of softness.</p></div></div></section>
+    <section class="closing"><div class="container"><p class="eyebrow">A NOTE FROM LUMIÈRE</p><h2>Glow at your <em>own pace.</em></h2><p>Beautifully imagined. Thoughtfully designed.</p><a class="button button-light" href="#home">Back to the beginning ↑</a></div></section>
   </main>
-  <footer class="footer"><div class="container footer-grid"><div><a class="wordmark" href="#home">LUMIÈRE<span>✳</span></a><p>Thoughtfully imagined. Beautifully designed.</p></div><div><p>DESIGN CONCEPT</p><small>Created by Makayla Calhoun for a digital media and web design portfolio. Fictional products and prices; no purchases are processed.</small></div></div><div class="container footer-bottom">© <span id="year">2026</span> LUMIÈRE · A STUDENT DESIGN CONCEPT</div></footer>
+  <footer class="footer"><div class="container footer-grid"><div><a class="wordmark footer-wordmark" href="#home">LUMIÈRE✳</a><p>An original fictional skincare website concept.</p></div><div><p>Designed &amp; developed as a portfolio project.</p><p>© <span id="year">2026</span> LUMIÈRE. Demo only — no purchases.</p></div></div></footer>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 </body>
 </html>
