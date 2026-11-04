@@ -11,9 +11,11 @@
   <link rel="stylesheet" href="styles.css?v=3">
   <link rel="stylesheet" href="quiz.css?v=1">
   <link rel="stylesheet" href="bag.css?v=1">
+  <link rel="stylesheet" href="products.css?v=1">
   <script src="script.js?v=3" defer></script>
   <script src="quiz.js?v=1" defer></script>
   <script src="bag.js?v=1" defer></script>
+  <script src="products.js?v=1" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -48,9 +50,9 @@
     <section class="collection section container" id="collection" aria-labelledby="collection-title">
       <div class="section-heading"><p class="eyebrow">01 / THE COLLECTION</p><h2 id="collection-title">The everyday <em>essentials.</em></h2><p>Three little luxuries, one beautiful routine. Explore this fictional collection designed for a portfolio demonstration.</p></div>
       <div class="product-grid">
-        <article class="product-card"><div class="product-art art-lilac"><span class="product-index">01 / THE GLOW</span><div class="mini-bottle mini-serum"><span>LUMIÈRE</span><strong>éclat</strong><small>RADIANCE SERUM</small></div></div><div class="product-info"><div class="product-heading"><h3>Éclat Radiance Serum</h3><span>$42</span></div><p>A luminous start to your day.</p><button class="add-button" data-product="Éclat Radiance Serum" type="button">Add to bag <span aria-hidden="true">+</span></button></div></article>
-        <article class="product-card"><div class="product-art art-peach"><span class="product-index">02 / THE COMFORT</span><div class="mini-jar"><div class="jar-lid"></div><div class="jar-body"><span>LUMIÈRE</span><strong>nuage</strong><small>CLOUD CREAM</small></div></div></div><div class="product-info"><div class="product-heading"><h3>Nuage Cloud Cream</h3><span>$38</span></div><p>A comforting daily ritual.</p><button class="add-button" data-product="Nuage Cloud Cream" type="button">Add to bag <span aria-hidden="true">+</span></button></div></article>
-        <article class="product-card"><div class="product-art art-sage"><span class="product-index">03 / THE RESET</span><div class="mini-bottle mini-cleanser"><span>LUMIÈRE</span><strong>calme</strong><small>GENTLE CLEANSER</small></div></div><div class="product-info"><div class="product-heading"><h3>Calme Gentle Cleanser</h3><span>$28</span></div><p>A softer way to begin again.</p><button class="add-button" data-product="Calme Gentle Cleanser" type="button">Add to bag <span aria-hidden="true">+</span></button></div></article>
+        <article class="product-card"><div class="product-art art-lilac"><span class="product-index">01 / THE GLOW</span><div class="mini-bottle mini-serum"><span>LUMIÈRE</span><strong>éclat</strong><small>RADIANCE SERUM</small></div></div><div class="product-info"><div class="product-heading"><h3>Éclat Radiance Serum</h3><span>$42</span></div><p>A luminous start to your day.</p><button class="product-detail-link" type="button" data-detail="Éclat Radiance Serum" aria-label="Explore details for Éclat Radiance Serum">Explore details ↗</button><button class="add-button" data-product="Éclat Radiance Serum" type="button">Add to bag <span aria-hidden="true">+</span></button></div></article>
+        <article class="product-card"><div class="product-art art-peach"><span class="product-index">02 / THE COMFORT</span><div class="mini-jar"><div class="jar-lid"></div><div class="jar-body"><span>LUMIÈRE</span><strong>nuage</strong><small>CLOUD CREAM</small></div></div></div><div class="product-info"><div class="product-heading"><h3>Nuage Cloud Cream</h3><span>$38</span></div><p>A comforting daily ritual.</p><button class="product-detail-link" type="button" data-detail="Nuage Cloud Cream" aria-label="Explore details for Nuage Cloud Cream">Explore details ↗</button><button class="add-button" data-product="Nuage Cloud Cream" type="button">Add to bag <span aria-hidden="true">+</span></button></div></article>
+        <article class="product-card"><div class="product-art art-sage"><span class="product-index">03 / THE RESET</span><div class="mini-bottle mini-cleanser"><span>LUMIÈRE</span><strong>calme</strong><small>GENTLE CLEANSER</small></div></div><div class="product-info"><div class="product-heading"><h3>Calme Gentle Cleanser</h3><span>$28</span></div><p>A softer way to begin again.</p><button class="product-detail-link" type="button" data-detail="Calme Gentle Cleanser" aria-label="Explore details for Calme Gentle Cleanser">Explore details ↗</button><button class="add-button" data-product="Calme Gentle Cleanser" type="button">Add to bag <span aria-hidden="true">+</span></button></div></article>
       </div>
     </section>
     <section class="philosophy section" id="philosophy" aria-labelledby="philosophy-title"><div class="container philosophy-grid"><div class="philosophy-art" aria-hidden="true"><div class="philosophy-circle"></div><span>BEAUTY<br>IN THE<br>PAUSE.</span><span class="philosophy-star">✳</span></div><div class="philosophy-copy"><p class="eyebrow">02 / OUR PHILOSOPHY</p><h2 id="philosophy-title">A little more <em>you.</em><br>A little less rush.</h2><p>We believe a skincare ritual can be a moment to slow down. LUMIÈRE is a fictional brand concept inspired by softness, confidence, and everyday beauty.</p><a class="text-link" href="#ritual">Make room for your ritual →</a></div></div></section>
@@ -96,6 +98,31 @@
       <button class="bag-continue" type="button" data-bag-continue>Continue exploring →</button>
     </div>
   </aside>
+  <!-- Product story: original fictional brand concept -->
+  <div class="product-story-overlay" id="product-story-overlay" hidden></div>
+  <section class="product-story" id="product-story" role="dialog" aria-modal="true" aria-labelledby="product-story-title" hidden>
+    <button class="product-story__close" id="product-story-close" type="button" aria-label="Close product details">×</button>
+    <div class="product-story__art" id="product-story-art" data-tone="lilac" aria-hidden="true">
+      <div class="product-story__halo"></div>
+      <div class="product-story__vessel"><span>LUMIÈRE</span><strong id="product-story-short">éclat</strong><small id="product-story-type">RADIANCE SERUM</small></div>
+      <span class="product-story__sparkle">✳</span>
+    </div>
+    <div class="product-story__content">
+      <p class="product-story__eyebrow" id="product-story-eyebrow">THE LUMIÈRE COLLECTION</p>
+      <h2 id="product-story-title">Éclat Radiance Serum</h2>
+      <p class="product-story__tagline" id="product-story-tagline"></p>
+      <p class="product-story__description" id="product-story-description"></p>
+      <div class="product-story__divider"></div>
+      <h3>Why you'll love the ritual</h3>
+      <ul id="product-story-benefits"></ul>
+      <h3>Imagined ingredient story</h3>
+      <p id="product-story-ingredients"></p>
+      <h3>Your moment, your way</h3>
+      <p id="product-story-how"></p>
+      <div class="product-story__purchase"><span id="product-story-price">$42</span><button type="button" id="product-story-add">Add to bag +</button></div>
+      <p class="product-story__disclaimer">Fictional concept product. Ingredients and benefits are creative descriptions, not tested formulations or medical claims. No purchases.</p>
+    </div>
+  </section>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 </body>
 </html>
