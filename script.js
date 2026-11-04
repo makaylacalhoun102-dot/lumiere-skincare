@@ -1,56 +1,42 @@
 
-const bagCount = document.getElementById('bag-count');
-const bagButton = document.getElementById('bag-button');
-const toast = document.getElementById('toast');
+ // LUMIÈRE — Phase 1 cinematic enhancements
+(() => {
+  const hero = document.querySelector('.hero');
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-let items = [];
-let toastTimeout;
+  if (hero && !reducedMotion.matches) {
+    hero.addEventListener('pointermove', event => {
+      const rect = hero.getBoundingClientRect();
 
-// Display a notification
-function showToast(message) {
-  if (!toast) return;
-
-  toast.textContent = message;
-  toast.classList.add('show');
-
-  clearTimeout(toastTimeout);
-
-  toastTimeout = setTimeout(() => {
-    toast.classList.remove('show');
-  }, 2800);
-}
-
-// Add skincare products to the shopping bag
-document.querySelectorAll('[data-product]').forEach(button => {
-  button.addEventListener('click', () => {
-    const productName = button.dataset.product;
-
-    items.push(productName);
-
-    if (bagCount) {
-      bagCount.textContent = `(${items.length})`;
-    }
-
-    showToast(`${productName} added to your bag!`);
-  });
-});
-
-// View shopping bag
-if (bagButton) {
-  bagButton.addEventListener('click', () => {
-    if (items.length === 0) {
-      showToast('Your shopping bag is empty.');
-    } else {
-      showToast(
-        `Your bag contains: ${items.join(', ')}. Checkout is not available in this demo.`
+      hero.style.setProperty(
+        '--pointer-x',
+        `${event.clientX - rect.left}px`
       );
-    }
+
+      hero.style.setProperty(
+        '--pointer-y',
+        `${event.clientY - rect.top}px`
+      );
+    }, { passive: true });
+  }
+
+  const sections = document.querySelectorAll(
+    '.section, .product, .philosophy, .ritual'
+  );
+
+  if (!('IntersectionObserver' in window) || reducedMotion.matches) return;
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+
+  sections.forEach(section => {
+    section.classList.add('reveal-on-scroll');
+    observer.observe(section);
   });
-}
-
-// Automatically update copyright year
-const yearElement = document.getElementById('year');
-
-if (yearElement) {
-  yearElement.textContent = new Date().getFullYear();
-}
+})();
