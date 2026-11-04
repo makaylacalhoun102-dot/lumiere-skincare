@@ -1,477 +1,131 @@
 
-/* LUMIÈRE — Luxury Skincare Website */
-
-:root {
-  --cream: #faf7f3;
-  --ivory: #fffdf9;
-  --plum: #39273e;
-  --lavender: #e9dcec;
-  --rose: #ead1d7;
-  --text: #342d35;
-  --muted: #746b75;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  margin: 0;
-  background: var(--cream);
-  color: var(--text);
-  font-family: "DM Sans", sans-serif;
-  line-height: 1.6;
-}
-
-a {
-  color: inherit;
-}
-
-button {
-  font: inherit;
-  cursor: pointer;
-}
-
-.container {
-  width: min(1160px, calc(100% - 40px));
-  margin-inline: auto;
-}
-
-.skip-link {
-  position: absolute;
-  top: -100px;
-  left: 12px;
-  background: var(--plum);
-  color: white;
-  padding: 12px;
-  z-index: 100;
-}
-
-.skip-link:focus {
-  top: 12px;
-}
-
-/* Announcement banner */
-
-.announcement {
-  background: var(--plum);
-  color: white;
-  text-align: center;
-  padding: 10px 16px;
-  font-size: 11px;
-  letter-spacing: 0.13em;
-}
-
-/* Navigation */
-
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  background: rgba(250, 247, 243, 0.94);
-  backdrop-filter: blur(14px);
-  border-bottom: 1px solid #e9dfe7;
-}
-
-.nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  min-height: 82px;
-}
-
-.wordmark {
-  font-family: "Playfair Display", serif;
-  font-size: 30px;
-  text-decoration: none;
-  color: var(--plum);
-}
-
-.wordmark span {
-  color: #b58ebd;
-}
-
-.nav-links {
-  display: flex;
-  gap: 26px;
-  flex-wrap: wrap;
-}
-
-.nav-links a {
-  text-decoration: none;
-  font-size: 13px;
-  font-weight: 600;
-}
-
-.nav-links a:hover {
-  color: #946c9d;
-}
-
-.bag-button {
-  border: 1px solid var(--plum);
-  background: transparent;
-  color: var(--plum);
-  border-radius: 30px;
-  padding: 10px 18px;
-}
-
-/* Hero */
-
-.hero {
-  position: relative;
-  min-height: 680px;
-  display: flex;
-  align-items: center;
-  padding: 90px 0;
-  background:
-    radial-gradient(
-      circle at 80% 40%,
-      #e7d6ec,
-      transparent 48%
-    ),
-    var(--cream);
-}
-
-.hero-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: center;
-}
-
-.eyebrow {
-  font-size: 11px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: #88698f;
-  font-weight: 700;
-}
-
-.hero h1 {
-  font-family: "Playfair Display", serif;
-  font-size: clamp(54px, 7vw, 100px);
-  line-height: 1.08;
-  font-weight: 500;
-  color: var(--plum);
-  letter-spacing: -0.05em;
-  margin: 20px 0 28px;
-}
-
-.hero h1 em,
-.section h2 em {
-  color: #a67bad;
-}
-
-.hero-copy > p:not(.eyebrow) {
-  max-width: 500px;
-  color: var(--muted);
-  font-size: 17px;
-}
-
-.hero-copy a {
-  display: inline-block;
-  margin-top: 25px;
-  padding: 15px 28px;
-  background: var(--plum);
-  color: white;
-  text-decoration: none;
-  border-radius: 40px;
-  font-size: 13px;
-  font-weight: 600;
-}
-
-/* Decorative skincare bottle */
+/* LUMIÈRE — Signature Hero Bottle Upgrade */
 
 .hero-visual {
-  min-height: 480px;
+  position: relative;
+  min-height: 500px;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
+  overflow: visible;
+  isolation: isolate;
 }
 
-.halo {
+/* Soft glowing background */
+.hero-visual .halo {
   position: absolute;
-  width: 390px;
-  height: 390px;
+  width: min(90%, 420px);
+  height: 420px;
   border-radius: 50%;
-  background: linear-gradient(
-    135deg,
-    #e9d2eb,
-    #f5e6e0
+  background: radial-gradient(
+    circle,
+    #ead5ee 0%,
+    #f0e0ec 50%,
+    transparent 75%
   );
-  filter: blur(4px);
+  filter: blur(12px);
+  z-index: 0;
 }
 
-.bottle {
+/* Hide the extra decorative bottle */
+.hero-visual .bottle-back {
+  display: none;
+}
+
+/* Main floating bottle */
+.hero-visual .bottle {
   position: relative;
   z-index: 2;
-  width: 190px;
-  height: 315px;
+  width: 205px;
+  height: 330px;
+  margin: 0 auto;
+  border: 1px solid rgba(255,255,255,0.7);
+  border-radius: 22px 22px 34px 34px;
   background: linear-gradient(
     110deg,
-    #fff9fc,
-    #d5b7d8 60%,
-    #f8eaf5
+    #f9edf8 0%,
+    #d5b2d9 45%,
+    #ead4e9 75%,
+    #fff7fc 100%
   );
-  border-radius: 24px 24px 35px 35px;
-  box-shadow: 20px 35px 50px #765b7833;
+  box-shadow:
+    inset 12px 0 20px rgba(255,255,255,0.5),
+    18px 30px 45px rgba(72,44,78,0.2);
 }
 
-.bottle::before {
+/* Bottle cap */
+.hero-visual .bottle::before {
   content: "";
   position: absolute;
-  width: 95px;
+  width: 100px;
   height: 65px;
-  background: var(--plum);
-  top: -60px;
-  left: 47px;
-  border-radius: 9px 9px 3px 3px;
+  top: -62px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    90deg,
+    #2e2033,
+    #503755,
+    #2e2033
+  );
+  border-radius: 10px 10px 3px 3px;
 }
 
-.bottle::after {
+/* Bottle branding */
+.hero-visual .bottle::after {
   content: "LUMIÈRE";
   position: absolute;
-  top: 100px;
-  left: 10%;
-  width: 80%;
+  top: 125px;
+  left: 0;
+  width: 100%;
   text-align: center;
-  color: var(--plum);
-  font-family: "Playfair Display", serif;
-  font-size: 22px;
-}
-
-/* Ticker */
-
-.ticker {
-  padding: 18px 0;
-  background: var(--plum);
-  color: white;
-  text-align: center;
-  font-size: 12px;
-  letter-spacing: 0.12em;
-}
-
-/* Main sections */
-
-.section {
-  padding-top: 105px;
-  padding-bottom: 105px;
-}
-
-.section h2 {
-  font-family: "Playfair Display", serif;
-  font-size: clamp(38px, 5vw, 58px);
-  font-weight: 500;
-  color: var(--plum);
-  line-height: 1.2;
-}
-
-.section-top {
-  margin-bottom: 45px;
-}
-
-.section-top p {
-  max-width: 600px;
-  color: var(--muted);
-}
-
-/* Product collection */
-
-.product {
-  display: inline-flex;
-  flex-direction: column;
-  vertical-align: top;
-  width: calc(33.333% - 20px);
-  margin: 0 16px 30px 0;
-  background: var(--ivory);
-  border-radius: 22px;
-  overflow: hidden;
-  padding-bottom: 26px;
-}
-
-.product-art {
-  height: 310px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  background: #eaddea;
-}
-
-.product-two {
-  background: #f1e0db;
-}
-
-.product-three {
-  background: #e2e4dd;
-}
-
-.product-bottle {
-  width: 95px;
-  height: 175px;
-  background: linear-gradient(
-    110deg,
-    white,
-    #d3b6d6
-  );
-  border-radius: 15px 15px 23px 23px;
-  box-shadow: 15px 20px 30px #38263f33;
-}
-
-.product h3,
-.product p,
-.product button {
-  margin-left: 25px;
-  margin-right: 25px;
-}
-
-.product h3 {
   font-family: "Playfair Display", serif;
   font-size: 25px;
-  color: var(--plum);
+  letter-spacing: 0.04em;
+  color: #39273e;
 }
 
-.product button {
-  border: none;
-  background: var(--plum);
-  color: white;
-  padding: 12px 20px;
-  border-radius: 30px;
-  margin-top: auto;
-  align-self: flex-start;
+/* Hide stray text from decorative packaging */
+.hero-visual .bottle span,
+.hero-visual .bottle strong,
+.hero-visual .bottle small {
+  display: none;
 }
 
-/* Philosophy */
-
-.philosophy {
-  background: #eee5ef;
-  padding: 100px 0;
-}
-
-.philosophy-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  gap: 60px;
-}
-
-.philosophy h2 {
-  font-family: "Playfair Display", serif;
-  font-size: 52px;
-  color: var(--plum);
-}
-
-/* Ritual */
-
-.ritual {
-  text-align: center;
-}
-
-.ritual-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  margin-top: 45px;
-}
-
-/* Footer */
-
-.footer {
-  background: var(--plum);
-  color: white;
-  padding: 65px 0;
-}
-
-.footer-grid {
-  display: flex;
-  justify-content: space-between;
-  gap: 35px;
-  flex-wrap: wrap;
-}
-
-/* Shopping bag notifications */
-
-.toast {
-  position: fixed;
-  bottom: 28px;
-  right: 28px;
-  z-index: 100;
-  background: var(--plum);
-  color: white;
-  padding: 16px 24px;
-  border-radius: 14px;
-  max-width: 340px;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(20px);
-  transition: all 0.3s ease;
-}
-
-.toast.show {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-
-/* Mobile responsive design */
-
-@media (max-width: 800px) {
-  .nav {
-    flex-wrap: wrap;
-    padding: 16px 0;
+/* Floating animation */
+@keyframes signatureFloat {
+  0%, 100% {
+    transform: translateY(0);
   }
-
-  .hero-content,
-  .philosophy-grid {
-    grid-template-columns: 1fr;
+  50% {
+    transform: translateY(-15px);
   }
+}
 
-  .hero {
-    padding: 65px 0;
+@media (prefers-reduced-motion: no-preference) {
+  .hero-visual .bottle {
+    animation: signatureFloat 6s ease-in-out infinite;
   }
+}
 
+@media (max-width: 600px) {
   .hero-visual {
-    min-height: 380px;
+    min-height: 420px;
   }
 
-  .product {
-    width: calc(50% - 20px);
+  .hero-visual .bottle {
+    width: 170px;
+    height: 285px;
   }
 
-  .ritual-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 550px) {
-  .hero h1 {
-    font-size: 56px;
-  }
-
-  .halo {
-    width: 290px;
-    height: 290px;
-  }
-
-  .product {
-    display: flex;
-    width: 100%;
-    margin-right: 0;
-  }
-
-  .nav-links {
-    gap: 14px;
+  .hero-visual .halo {
+    width: 300px;
+    height: 300px;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
+  .hero-visual .bottle {
+    animation: none !important;
   }
 }
