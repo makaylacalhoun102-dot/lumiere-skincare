@@ -1,51 +1,37 @@
+// LUMIÈRE — demo shopping bag and accessible notifications
+(() => {
+  const bagCount = document.getElementById('bag-count');
+  const bagButton = document.getElementById('bag-button');
+  const toast = document.getElementById('toast');
+  const year = document.getElementById('year');
+  const items = [];
+  let toastTimer;
 
-const bagCount = document.getElementById('bag-count');
-const bagButton = document.getElementById('bag-button');
-const toast = document.getElementById('toast');
+  function notify(message) {
+    if (!toast) return;
+    toast.textContent = message;
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove('show'), 3500);
+  }
 
-let items = [];
-let toastTimeout;
-
-function showToast(message) {
-  if (!toast) return;
-
-  toast.textContent = message;
-  toast.classList.add('show');
-
-  clearTimeout(toastTimeout);
-
-  toastTimeout = setTimeout(() => {
-    toast.classList.remove('show');
-  }, 2800);
-}
-
-document.querySelectorAll('[data-product]').forEach(button => {
-  button.addEventListener('click', () => {
-    const productName = button.dataset.product;
-    items.push(productName);
-
-    if (bagCount) {
-      bagCount.textContent = `(${items.length})`;
-    }
-
-    showToast(`${productName} added to your bag!`);
+  document.querySelectorAll('[data-product]').forEach(button => {
+    button.addEventListener('click', () => {
+      items.push(button.dataset.product);
+      if (bagCount) bagCount.textContent = `(${items.length})`;
+      notify(`${button.dataset.product} added to your bag.`);
+    });
   });
-});
 
-if (bagButton) {
-  bagButton.addEventListener('click', () => {
-    if (items.length === 0) {
-      showToast('Your shopping bag is empty.');
-    } else {
-      showToast(
-        `Your bag contains: ${items.join(', ')}. Checkout is not available in this demo.`
-      );
-    }
-  });
-}
+  if (bagButton) {
+    bagButton.addEventListener('click', () => {
+      if (!items.length) {
+        notify('Your bag is empty. Explore the collection to add a product.');
+      } else {
+        notify(`Your bag: ${items.join(', ')}. This is a design demo; checkout is not available.`);
+      }
+    });
+  }
 
-const yearElement = document.getElementById('year');
-
-if (yearElement) {
-  yearElement.textContent = new Date().getFullYear();
-}
+  if (year) year.textContent = new Date().getFullYear();
+})();
