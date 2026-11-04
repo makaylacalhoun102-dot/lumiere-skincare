@@ -1,0 +1,105 @@
+
+/* LUMIÈRE — Phase 1 Cinematic Enhancements */
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Interactive spotlight */
+.hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  --pointer-x: 50%;
+  --pointer-y: 50%;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(
+    480px circle at var(--pointer-x) var(--pointer-y),
+    rgba(205, 170, 230, 0.22),
+    transparent 70%
+  );
+}
+
+/* Floating product artwork */
+.hero .bottle,
+.hero .hero-bottle,
+.hero .bottle-illustration {
+  animation: lumiereFloat 5s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes lumiereFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-18px);
+  }
+}
+
+/* Elegant product card interactions */
+.product-card,
+.product {
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.product-card:hover,
+.product:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 45px rgba(78, 44, 83, 0.12);
+}
+
+/* Reveal sections while scrolling */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Accessible keyboard focus */
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid #9366b0;
+  outline-offset: 4px;
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .hero .bottle,
+  .hero .hero-bottle,
+  .hero .bottle-illustration {
+    animation: none;
+  }
+
+  .reveal-on-scroll {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .product-card,
+  .product {
+    transition: none;
+  }
+}
