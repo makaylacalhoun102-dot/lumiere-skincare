@@ -1,16 +1,477 @@
-/* LUMIÈRE — Phase 1 cinematic enhancements */
-:root { --cinema-plum:#38263f; --cinema-lilac:#d9c5e7; }
-.hero { position:relative; isolation:isolate; overflow:hidden; }
-.hero::before { content:""; position:absolute; inset:0; z-index:-1; pointer-events:none; background:radial-gradient(430px circle at var(--pointer-x,70%) var(--pointer-y,40%),rgba(200,164,224,.25),transparent 75%); }
-.hero-visual { position:relative; perspective:950px; }
-.hero-visual .bottle, .hero-visual .hero-bottle { animation:lumiereFloat 6s ease-in-out infinite; filter:drop-shadow(0 30px 24px rgba(56,38,63,.16)); transform-style:preserve-3d; }
-.hero-visual .halo { animation:lumiereGlow 7s ease-in-out infinite alternate; }
-@keyframes lumiereFloat { 0%,100% {transform:translateY(0) rotate(-3deg)} 50% {transform:translateY(-19px) rotate(2deg)} }
-@keyframes lumiereGlow {from {transform:scale(.94);opacity:.7} to {transform:scale(1.07);opacity:1}}
-.reveal-on-scroll { opacity:0; transform:translateY(30px); transition:opacity .85s ease,transform .85s cubic-bezier(.2,.7,.2,1); }
-.reveal-on-scroll.is-visible { opacity:1; transform:translateY(0); }
-.hero .eyebrow { letter-spacing:.19em; }
-.hero h1 { text-wrap:balance; }
-.hero .btn, .product button { transition:transform .25s ease,box-shadow .25s ease; }
-.hero .btn:hover, .product button:hover { transform:translateY(-3px); box-shadow:0 12px 25px rgba(56,38,63,.15); }
-@media (prefers-reduced-motion:reduce) { .hero-visual .bottle,.hero-visual .hero-bottle,.hero-visual .halo {animation:none!important} .reveal-on-scroll {opacity:1;transform:none;transition:none} .hero .btn,.product button {transition:none} }
+
+/* LUMIÈRE — Luxury Skincare Website */
+
+:root {
+  --cream: #faf7f3;
+  --ivory: #fffdf9;
+  --plum: #39273e;
+  --lavender: #e9dcec;
+  --rose: #ead1d7;
+  --text: #342d35;
+  --muted: #746b75;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--text);
+  font-family: "DM Sans", sans-serif;
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+.container {
+  width: min(1160px, calc(100% - 40px));
+  margin-inline: auto;
+}
+
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 12px;
+  background: var(--plum);
+  color: white;
+  padding: 12px;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  top: 12px;
+}
+
+/* Announcement banner */
+
+.announcement {
+  background: var(--plum);
+  color: white;
+  text-align: center;
+  padding: 10px 16px;
+  font-size: 11px;
+  letter-spacing: 0.13em;
+}
+
+/* Navigation */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(250, 247, 243, 0.94);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid #e9dfe7;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: 82px;
+}
+
+.wordmark {
+  font-family: "Playfair Display", serif;
+  font-size: 30px;
+  text-decoration: none;
+  color: var(--plum);
+}
+
+.wordmark span {
+  color: #b58ebd;
+}
+
+.nav-links {
+  display: flex;
+  gap: 26px;
+  flex-wrap: wrap;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.nav-links a:hover {
+  color: #946c9d;
+}
+
+.bag-button {
+  border: 1px solid var(--plum);
+  background: transparent;
+  color: var(--plum);
+  border-radius: 30px;
+  padding: 10px 18px;
+}
+
+/* Hero */
+
+.hero {
+  position: relative;
+  min-height: 680px;
+  display: flex;
+  align-items: center;
+  padding: 90px 0;
+  background:
+    radial-gradient(
+      circle at 80% 40%,
+      #e7d6ec,
+      transparent 48%
+    ),
+    var(--cream);
+}
+
+.hero-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #88698f;
+  font-weight: 700;
+}
+
+.hero h1 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(54px, 7vw, 100px);
+  line-height: 1.08;
+  font-weight: 500;
+  color: var(--plum);
+  letter-spacing: -0.05em;
+  margin: 20px 0 28px;
+}
+
+.hero h1 em,
+.section h2 em {
+  color: #a67bad;
+}
+
+.hero-copy > p:not(.eyebrow) {
+  max-width: 500px;
+  color: var(--muted);
+  font-size: 17px;
+}
+
+.hero-copy a {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 15px 28px;
+  background: var(--plum);
+  color: white;
+  text-decoration: none;
+  border-radius: 40px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* Decorative skincare bottle */
+
+.hero-visual {
+  min-height: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.halo {
+  position: absolute;
+  width: 390px;
+  height: 390px;
+  border-radius: 50%;
+  background: linear-gradient(
+    135deg,
+    #e9d2eb,
+    #f5e6e0
+  );
+  filter: blur(4px);
+}
+
+.bottle {
+  position: relative;
+  z-index: 2;
+  width: 190px;
+  height: 315px;
+  background: linear-gradient(
+    110deg,
+    #fff9fc,
+    #d5b7d8 60%,
+    #f8eaf5
+  );
+  border-radius: 24px 24px 35px 35px;
+  box-shadow: 20px 35px 50px #765b7833;
+}
+
+.bottle::before {
+  content: "";
+  position: absolute;
+  width: 95px;
+  height: 65px;
+  background: var(--plum);
+  top: -60px;
+  left: 47px;
+  border-radius: 9px 9px 3px 3px;
+}
+
+.bottle::after {
+  content: "LUMIÈRE";
+  position: absolute;
+  top: 100px;
+  left: 10%;
+  width: 80%;
+  text-align: center;
+  color: var(--plum);
+  font-family: "Playfair Display", serif;
+  font-size: 22px;
+}
+
+/* Ticker */
+
+.ticker {
+  padding: 18px 0;
+  background: var(--plum);
+  color: white;
+  text-align: center;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+}
+
+/* Main sections */
+
+.section {
+  padding-top: 105px;
+  padding-bottom: 105px;
+}
+
+.section h2 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(38px, 5vw, 58px);
+  font-weight: 500;
+  color: var(--plum);
+  line-height: 1.2;
+}
+
+.section-top {
+  margin-bottom: 45px;
+}
+
+.section-top p {
+  max-width: 600px;
+  color: var(--muted);
+}
+
+/* Product collection */
+
+.product {
+  display: inline-flex;
+  flex-direction: column;
+  vertical-align: top;
+  width: calc(33.333% - 20px);
+  margin: 0 16px 30px 0;
+  background: var(--ivory);
+  border-radius: 22px;
+  overflow: hidden;
+  padding-bottom: 26px;
+}
+
+.product-art {
+  height: 310px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: #eaddea;
+}
+
+.product-two {
+  background: #f1e0db;
+}
+
+.product-three {
+  background: #e2e4dd;
+}
+
+.product-bottle {
+  width: 95px;
+  height: 175px;
+  background: linear-gradient(
+    110deg,
+    white,
+    #d3b6d6
+  );
+  border-radius: 15px 15px 23px 23px;
+  box-shadow: 15px 20px 30px #38263f33;
+}
+
+.product h3,
+.product p,
+.product button {
+  margin-left: 25px;
+  margin-right: 25px;
+}
+
+.product h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 25px;
+  color: var(--plum);
+}
+
+.product button {
+  border: none;
+  background: var(--plum);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 30px;
+  margin-top: auto;
+  align-self: flex-start;
+}
+
+/* Philosophy */
+
+.philosophy {
+  background: #eee5ef;
+  padding: 100px 0;
+}
+
+.philosophy-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 60px;
+}
+
+.philosophy h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 52px;
+  color: var(--plum);
+}
+
+/* Ritual */
+
+.ritual {
+  text-align: center;
+}
+
+.ritual-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 45px;
+}
+
+/* Footer */
+
+.footer {
+  background: var(--plum);
+  color: white;
+  padding: 65px 0;
+}
+
+.footer-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 35px;
+  flex-wrap: wrap;
+}
+
+/* Shopping bag notifications */
+
+.toast {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 100;
+  background: var(--plum);
+  color: white;
+  padding: 16px 24px;
+  border-radius: 14px;
+  max-width: 340px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+}
+
+.toast.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Mobile responsive design */
+
+@media (max-width: 800px) {
+  .nav {
+    flex-wrap: wrap;
+    padding: 16px 0;
+  }
+
+  .hero-content,
+  .philosophy-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding: 65px 0;
+  }
+
+  .hero-visual {
+    min-height: 380px;
+  }
+
+  .product {
+    width: calc(50% - 20px);
+  }
+
+  .ritual-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 550px) {
+  .hero h1 {
+    font-size: 56px;
+  }
+
+  .halo {
+    width: 290px;
+    height: 290px;
+  }
+
+  .product {
+    display: flex;
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .nav-links {
+    gap: 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
