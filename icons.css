@@ -1,0 +1,10 @@
+/* LUMIÈRE — consistent monochrome decorative symbols on iOS Safari */
+.lumiere-icon{display:inline-block;width:1em;height:1em;vertical-align:-.12em;flex:none;color:inherit;overflow:visible}
+.lumiere-icon--star,.lumiere-icon--arrow{fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.lumiere-icon--diamond{fill:currentColor;stroke:none}
+.wordmark .lumiere-icon{color:#ad7bb3;width:.65em;height:.65em;vertical-align:.02em;margin-left:.05em}
+.footer-wordmark .lumiere-icon{color:#d8b9d9}
+.announcement .lumiere-icon,.ticker .lumiere-icon{width:.9em;height:.9em;vertical-align:-.08em}
+.stage-sparkle .lumiere-icon,.philosophy-star .lumiere-icon,.product-story__sparkle .lumiere-icon{display:block;width:1em;height:1em}
+.designer-art__mark span .lumiere-icon{display:inline-block;width:1em;height:1em;vertical-align:0}
+.button .lumiere-icon,.product-detail-link .lumiere-icon{width:1em;height:1em;vertical-align:-.15em;margin-left:.25em}
