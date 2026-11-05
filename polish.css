@@ -1,0 +1,39 @@
+/* LUMIÈRE portfolio polish — additive, keeps existing features intact */
+html{scroll-padding-top:120px}
+.nav-links{flex-wrap:wrap;justify-content:center;row-gap:8px}
+.nav-links a{transition:color .2s ease}
+.product-detail-link{min-height:44px}
+.product-card{display:flex;flex-direction:column}
+.product-info{display:flex;flex:1;flex-direction:column;align-items:flex-start}
+.product-info .add-button{margin-top:auto}
+.product-info .product-detail-link{margin:8px 0 15px}
+/* Remove the artificial blank row above the illustration in the story modal. */
+@media(min-width:761px){
+  .product-story{grid-template-rows:minmax(0,1fr)}
+  .product-story__close{position:absolute;top:18px;right:18px;grid-column:auto;margin:0}
+  .product-story__art{grid-column:1;grid-row:1;min-height:0;height:100%;align-self:stretch}
+  .product-story__content{grid-column:2;grid-row:1;padding-top:65px}
+}
+.product-story__vessel{transition:transform .4s ease,box-shadow .4s ease}
+@media(min-width:761px) and (prefers-reduced-motion:no-preference){
+  .product-story:not([hidden]) .product-story__vessel{animation:polish-rise .65s cubic-bezier(.2,.8,.2,1) both}
+  @keyframes polish-rise{from{opacity:.6;transform:translateY(18px) rotate(-7deg)}to{opacity:1;transform:translateY(0) rotate(-5deg)}}
+}
+.designer-section{padding:105px 0;background:#f4edf3}
+.designer-layout{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);align-items:center;gap:clamp(35px,6vw,100px)}
+.designer-art{min-height:470px;position:relative;display:grid;place-items:center;isolation:isolate;overflow:hidden;border-radius:32px;background:radial-gradient(circle at 70% 30%,#f6e8f2,transparent 55%),linear-gradient(145deg,#d6bedb,#eadce9 60%,#e2cce4)}
+.designer-art__circle{position:absolute;width:73%;aspect-ratio:1;border:1px solid #ffffffc9;border-radius:50%;transform:rotate(-25deg) scaleX(1.2)}
+.designer-art__mark{font:italic 500 clamp(115px,16vw,210px)/1 'Playfair Display',Georgia,serif;color:#38263f;letter-spacing:-.09em;text-shadow:14px 18px 30px #38263f26}
+.designer-art__mark span{font:400 43px 'Playfair Display',serif;vertical-align:top;color:#91649d;letter-spacing:0}
+.designer-art__caption{position:absolute;bottom:28px;left:28px;font-size:10px;letter-spacing:.19em;font-weight:700;color:#6d5471}
+.designer-copy h2{font:500 clamp(38px,4.5vw,61px)/1.14 'Playfair Display',Georgia,serif;letter-spacing:-.045em;margin:16px 0 24px}
+.designer-copy h2 em{color:#a676ab}
+.designer-copy p:not(.eyebrow){color:#6a5b6a;line-height:1.8}
+.designer-copy .designer-lead{font:italic 500 23px/1.4 'Playfair Display',Georgia,serif;color:#38263f;margin:0 0 16px}
+.designer-tags{display:flex;flex-wrap:wrap;gap:9px;margin:25px 0}
+.designer-tags span{padding:7px 13px;border:1px solid #cfb8d1;border-radius:99px;color:#543a5c;background:#fffafdbb;font-size:12px;font-weight:600}
+.designer-copy .designer-note{font-size:12px;margin:0 0 22px}
+@media(max-width:900px){.designer-layout{gap:30px}.designer-art{min-height:370px}}
+@media(max-width:700px){html{scroll-padding-top:160px}.nav-links{gap:10px 16px}.nav-links a{font-size:12px}.designer-section{padding:70px 0}.designer-layout{grid-template-columns:1fr}.designer-art{min-height:310px}.designer-art__mark{font-size:145px}.product-story__art{min-height:250px;height:250px}}
+@media(max-width:380px){.nav-links{gap:8px 12px}.nav-links a{font-size:11px}.designer-art{min-height:270px}}
+@media(prefers-reduced-motion:reduce){.nav-links a,.product-story__vessel{transition:none}}
