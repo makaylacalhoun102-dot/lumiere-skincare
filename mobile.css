@@ -1,0 +1,56 @@
+/* LUMIÈRE — responsive finishing pass. Loaded after all other styles. */
+html{scroll-padding-top:105px}
+img,svg,video{max-width:100%}
+.nav-links{flex-wrap:wrap;justify-content:center}
+.nav-links a,.bag-button,.product-detail-link,.add-button{touch-action:manipulation}
+@media(max-width:900px){
+ .hero-grid{min-height:0}
+ .product-story{max-width:calc(100vw - 28px)}
+ .product-story__content{overflow:visible}
+}
+@media(max-width:700px){
+ html{scroll-padding-top:155px}
+ .announcement{font-size:9px;line-height:1.5;letter-spacing:.11em}
+ .nav{gap:12px;padding-block:12px}
+ .nav-links{gap:10px 17px}
+ .nav-links a{min-height:32px;display:inline-flex;align-items:center}
+ .bag-button{min-height:44px}
+ .hero-grid{padding-block:42px 45px}
+ .hero h1{margin:18px 0;font-size:clamp(48px,12vw,74px)}
+ .hero-description{font-size:16px}
+ .hero-actions{gap:14px}
+ .hero-stage{height:370px}
+ .serum-wrap{scale:.83}
+ .stage-caption{font-size:8px}
+ .ticker{line-height:1.8}
+ .section-heading h2,.philosophy h2,.closing h2{overflow-wrap:break-word}
+ .product-grid{max-width:470px}
+ .product-info{width:100%}
+ .product-info .product-detail-link{width:100%;margin:10px 0 0}
+ .product-info .add-button{min-height:46px}
+ .ritual-quiz__panel{border-radius:20px}
+ .designer-section{padding:60px 0}
+ .designer-art{min-height:290px}
+ .designer-copy h2{font-size:clamp(36px,9vw,54px)}
+ .footer-grid{flex-direction:column;gap:15px}
+ /* Product story: content and close control remain accessible on phones */
+ .product-story{inset:8px;max-width:none;max-height:calc(100dvh - 16px);border-radius:18px;overscroll-behavior:contain}
+ .product-story__close{position:sticky;top:10px;z-index:5}
+ .product-story__art{min-height:240px;height:240px}
+ .product-story__content{padding:24px 22px 34px}
+ .product-story h2{font-size:clamp(32px,8vw,44px)}
+ .product-story__purchase button{min-height:46px}
+}
+@media(max-width:390px){
+ .container{width:calc(100% - 28px)}
+ .wordmark{font-size:27px}
+ .nav-links{gap:6px 13px}
+ .nav-links a{font-size:11px}
+ .hero-stage{height:325px}
+ .serum-wrap{scale:.72}
+ .hero h1{font-size:49px}
+ .ritual-quiz__choices{grid-template-columns:1fr}
+ .product-story__purchase{align-items:stretch}
+ .product-story__purchase button{width:100%}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
